@@ -85,7 +85,7 @@ T2:Toggle("Auto hatch",false,function(value)
     bool.a6 = value
     while wait() do
       if bool.a6 == false then break end
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Hatch"]["EggHatch"]:InvokeServer(boo.segg,"1",{})
+      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Hatch"]["EggHatch"]:InvokeServer(bool.segg,"1",{})
     end
 end)
 
@@ -105,7 +105,7 @@ T3:Toggle("Auto start match",false,function(value)
     
     while wait() do
       if bool.a7 == false then break end
-      game:GetService("ReplicatedStorage")["Remotes"]["Match"]["Join"]:InvokeServer(self.stats.World)
+      game:GetService("ReplicatedStorage")["Remotes"]["Match"]["Join"]:InvokeServer(self.stats.World.Value)
     end
 end)
 
