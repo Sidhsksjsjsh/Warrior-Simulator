@@ -124,3 +124,5 @@ T4:Toggle("Auto upgrade",false,function(value)
       game:GetService("ReplicatedStorage")["Remotes"]["Profile"]["AddPoint"]:FireServer(bool.stats,bool.point)
     end
 end)
+
+lib.DeveloperEncrypt(wndw)
