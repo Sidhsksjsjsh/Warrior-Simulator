@@ -21,7 +21,8 @@ local bool = {
   stable = {"Defense","Damage","Speed","Luck"},
   stats = "Defense",
   point = 1,
-  a9 = false
+  a9 = false,
+  spin = false
 }
 
 lib:AddTable(workspace.Egg,bool.egg)
@@ -38,18 +39,18 @@ T1:Toggle("Auto claim online reward",false,function(value)
     bool.a2 = value
     while wait() do
       if bool.a2 == false then break end
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(1)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(2)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(3)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(4)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(5)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(6)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(7)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(8)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(9)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(10)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(11)
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Online"]["TryGetOnlineGift"]:InvokeServer(12)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(1)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(2)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(3)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(4)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(5)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(6)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(7)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(8)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(9)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(10)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(11)
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Online"]["TryGetOnlineGift"]:InvokeServer(12)
     end
 end)
 
@@ -77,6 +78,14 @@ T1:Toggle("Auto upgrade weapon",false,function(value)
     end
 end)
 
+T1:Toggle("Auto spin",false,function(value)
+    bool.spin = value
+    while wait() do
+      if bool.spin == false then break end
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Spin"]["TrySpin"]:InvokeServer()
+    end
+end)
+
 T2:Dropdown("Choose eggs",bool.egg,function(value)
     bool.segg = tonumber(value)
 end)
@@ -85,7 +94,7 @@ T2:Toggle("Auto hatch",false,function(value)
     bool.a6 = value
     while wait() do
       if bool.a6 == false then break end
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Hatch"]["EggHatch"]:InvokeServer(bool.segg,"1",{})
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Hatch"]["EggHatch"]:InvokeServer(bool.segg,"1",{})
     end
 end)
 
@@ -93,7 +102,7 @@ T2:Toggle("Auto equip best pet",false,function(value)
     bool.a8 = value
     while wait() do
       if bool.a8 == false then break end
-      game:GetService("ReplicatedStorage")["Remotes"]["Constant"]["Pet"]["EquipBest"]:FireServer()
+      game:GetService("ReplicatedStorage")["Remotes"]["Common"]["Pet"]["EquipBest"]:FireServer()
     end
 end)
 
